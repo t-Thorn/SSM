@@ -1,13 +1,21 @@
 package com.Thorn.dao;
 
 import com.Thorn.model.city;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 public interface cityMapper {
-    int insert(city record);
+    List<city> findAllCity();
 
-    int insertSelective(city record);
+    city findOneCity(int cityId);
 
-    List<city> findAll();
+    int insertCity(city city);
+
+    int updateCity(city city);
+
+    int deleteCity(int cityId);
+
 }

@@ -11,9 +11,9 @@
         </constructor>
     </resultMap>
     <insert id="insert" parameterType="com.Thorn.model.city">
-    insert into city (id, name, state,
+        insert into city (id, name, state,
       country)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR},
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR},
       #{country,jdbcType=VARCHAR})
   </insert>
     <insert id="insertSelective" parameterType="com.Thorn.model.city">
@@ -46,62 +46,5 @@
                 #{country,jdbcType=VARCHAR},
             </if>
         </trim>
-    </insert>
-    <resultMap id="BaseResultMap" type="com.Thorn.model.city">
-        <constructor>
-            <arg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="state" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        </constructor>
-    </resultMap>
-
-    <resultMap id="CityResultMap" type="com.example.model.City">
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="state" property="state"/>
-        <result column="country" property="country"/>
-    </resultMap>
-
-    <insert id="insert" parameterType="com.Thorn.model.city">
-    insert into city (id, name, state,
-      country)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR},
-      #{country,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.Thorn.model.city">
-        insert into city
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-            <if test="state != null">
-                state,
-            </if>
-            <if test="country != null">
-                country,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="state != null">
-                #{state,jdbcType=VARCHAR},
-            </if>
-            <if test="country != null">
-                #{country,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-
-    <select id="findALL" resultMap="CityMap">
-    select id, name, state, country from city
-  </select>
 </mapper>
